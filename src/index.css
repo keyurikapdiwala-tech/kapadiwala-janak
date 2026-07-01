@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Premium Colors for Natural Tones Theme */
+  --color-maroon-950: #2C0808;
+  --color-maroon-900: #4A0E0E; /* Exact Natural Tones Maroon */
+  --color-maroon-800: #5C1515;
+  --color-maroon-700: #701D1D;
+  --color-maroon-600: #882A2A;
+  
+  --color-gold-100: #F6F1E5;
+  --color-gold-200: #EDE1CA;
+  --color-gold-300: #DFCBA3;
+  --color-gold-400: #D2B475;
+  --color-gold-500: #C5A059; /* Exact Natural Tones Gold */
+  --color-gold-600: #AA853D;
+  --color-gold-700: #8E6C2D;
+  
+  --color-rosegold-300: #EAD0C3;
+  --color-rosegold-400: #DEC1B2;
+  --color-rosegold-500: #D0A794;
+  --color-rosegold-600: #B78D79;
+  
+  --color-beige-50: #FAF9F6;  /* Exact Natural Tones Soft White */
+  --color-beige-100: #F5F2ED; /* Exact Natural Tones Soft Beige */
+  --color-beige-200: #EDE8DF;
+  --color-beige-300: #E0D7C9;
+  
+  --color-charcoal-900: #1C1C1C;
+  --color-charcoal-800: #333333; /* Exact Natural Tones Charcoal */
+  --color-charcoal-700: #4D4D4D;
+  --color-charcoal-600: #666666;
+  --color-charcoal-500: #808080;
+  
+  /* Luxury Typography Pairings */
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Custom Base & Utilities */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-beige-50);
+    color: var(--color-charcoal-800);
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-serif-luxury {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Elegant Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-beige-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-maroon-800);
+  border-radius: 9999px;
+  border: 2px solid var(--color-beige-50);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-600);
+}
+
+/* Custom animations for glass cards & floating controls */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes slow-pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.3; }
+}
+
+.animate-float-delayed {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 8s ease-in-out infinite;
+}
+
+/* Blur overlay for luxury modal */
+.glassmorphism {
+  background: rgba(250, 249, 246, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.glassmorphism-dark {
+  background: rgba(28, 28, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.dark .glass-card {
+  background: rgba(28, 28, 28, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+/* Image zoom helper for gallery */
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-zoom-container:hover img {
+  transform: scale(1.06);
+}
